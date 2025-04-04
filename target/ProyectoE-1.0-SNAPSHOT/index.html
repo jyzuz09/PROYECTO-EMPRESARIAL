@@ -37,20 +37,38 @@
             <div class="col-md-4">
                 <div class="card p-4 login-card">
                     <h4 class="mb-3">Inicio de Sesión</h4>
-                    <form>
+                    <form id="loginForm">
                         <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Usuario" required>
+                            <input type="text" class="form-control" id="username" placeholder="Usuario" required>
                         </div>
                         <div class="mb-3">
-                            <input type="password" class="form-control" placeholder="Contraseña" required>
+                            <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
                         </div>
-                        <button type="submit" class="btn btn-msft w-100">Ingresar</button>
+                        <button type="button" class="btn btn-msft w-100" onclick="login()">Ingresar</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    
+
+    <script>
+        function login() {
+            // Obtener los valores ingresados
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Verificación simple de las credenciales
+            if (username === "admin" && password === "admin123") {
+                // Redirigir a la página de administrador
+                window.location.href = "administrador.html";
+            } else if (username === "user" && password === "user123") {
+                // Redirigir a la página de usuario
+                window.location.href = "usuario.html";
+            } else {
+                // Si las credenciales son incorrectas, mostrar un mensaje
+                alert("Credenciales incorrectas");
+            }
+        }
+    </script>
 </body>
 </html>
-
